@@ -1,0 +1,57 @@
+<!-- User resource card following Material Design card best practices -->
+<mat-card class="user-card" [attr.aria-label]="'User card for ' + user().fullName">
+
+  <!-- Profile picture at the top -->
+  <img mat-card-image
+       [src]="user().pictureUrl"
+       [alt]="'Profile photo of ' + user().fullName" />
+
+  <!-- Name as title, username as subtitle -->
+  <mat-card-header>
+    <mat-card-title>{{ user().fullName }}</mat-card-title>
+    <mat-card-subtitle>@{{ user().username }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <!-- Additional attributes -->
+  <mat-card-content>
+    <p aria-label="Email">
+      <mat-icon aria-hidden="true">email</mat-icon>
+      {{ user().email }}
+    </p>
+    <p aria-label="Phone">
+      <mat-icon aria-hidden="true">phone</mat-icon>
+      {{ user().phone }}
+    </p>
+    <p aria-label="Location">
+      <mat-icon aria-hidden="true">location_on</mat-icon>
+      {{ user().location }}
+    </p>
+    <p aria-label="Age and gender">
+      <mat-icon aria-hidden="true">person</mat-icon>
+      {{ user().gender | titlecase }} · {{ user().age }} {{ 'user.yearsOld' | translate }}
+    </p>
+    <mat-chip aria-label="Nationality">{{ user().nationality }}</mat-chip>
+  </mat-card-content>
+
+  <!-- Footer actions -->
+  <mat-card-actions>
+    <!-- Left: Go To Website -->
+    <button mat-button
+            color="primary"
+            (click)="goToWebsite()"
+            [attr.aria-label]="'Go to website of ' + user().fullName">
+      {{ 'user.goToWebsite' | translate }}
+    </button>
+
+    <span class="spacer"></span>
+
+    <!-- Right: Share Resource -->
+    <button mat-icon-button
+            color="primary"
+            (click)="shareResource()"
+            [attr.aria-label]="'Share resource of ' + user().fullName">
+      <mat-icon>share</mat-icon>
+    </button>
+  </mat-card-actions>
+
+</mat-card>

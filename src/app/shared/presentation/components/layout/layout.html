@@ -1,0 +1,30 @@
+<!-- Main application layout -->
+<mat-toolbar color="primary" role="banner" aria-label="Main toolbar">
+  <!-- Left side: logo + title -->
+  <img [src]="logoUrl"
+       alt="Random User logo"
+       height="36"
+       class="toolbar-logo"
+       aria-label="Random User logo" />
+  <span class="toolbar-title">Random User</span>
+
+  <span class="spacer"></span>
+
+  <!-- Right side: language toggle -->
+  <app-language-switcher aria-label="Language selector" />
+</mat-toolbar>
+
+<!-- Main content -->
+<main role="main">
+  @if (loading()) {
+    <div class="loading-container" aria-live="polite" aria-label="Loading users">
+      <mat-progress-spinner mode="indeterminate" />
+    </div>
+  } @else if (error()) {
+    <p class="error-message" role="alert">{{ error() }}</p>
+  } @else {
+    <app-user-list [users]="users()" />
+  }
+</main>
+
+<app-footer />

@@ -1,0 +1,12 @@
+.catalogue-title {
+  text-align: center;
+  padding: 24px 16px 8px;
+  font-size: 1.5rem;
+}
+
+.users-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}

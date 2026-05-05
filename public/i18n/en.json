@@ -1,0 +1,9 @@
+{
+  "app": { "title": "Random User" },
+  "catalogue": { "title": "User Resources Catalogue" },
+  "user": {
+    "goToWebsite": "Go To Website",
+    "shareResource": "Share Resource",
+    "yearsOld": "years old"
+  }
+}

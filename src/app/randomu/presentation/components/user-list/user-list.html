@@ -1,0 +1,8 @@
+<section aria-label="User Resources Catalogue">
+  <h2 class="catalogue-title">{{ 'catalogue.title' | translate }}</h2>
+  <div class="users-grid">
+    @for (user of users(); track user.email) {
+      <app-user-item [user]="user" />
+    }
+  </div>
+</section>
